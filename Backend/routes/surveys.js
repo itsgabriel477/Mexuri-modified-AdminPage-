@@ -1,7 +1,7 @@
 // routes/surveys.js
-import express from 'express';
-import axios from 'axios';
-import pool from '../db.js';
+const express = require('express');
+const axios = require('axios');
+const pool = require('../config/db.js');
 
 const router = express.Router();
 const EMAILJS_API = 'https://api.emailjs.com/api/v1.0/email/send';
@@ -123,4 +123,4 @@ router.post('/', async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

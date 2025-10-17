@@ -1,5 +1,5 @@
 // middleware/basicAuth.js
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 dotenv.config();
 
 /**
@@ -21,7 +21,7 @@ function parseBasicAuth(header) {
 /**
  * Middleware: protect routes with Basic Auth using ADMIN_USER / ADMIN_PASS from .env
  */
-export default function basicAuth(req, res, next) {
+function basicAuth(req, res, next) {
   const header = req.headers.authorization;
   const creds = parseBasicAuth(header);
 
@@ -41,3 +41,5 @@ export default function basicAuth(req, res, next) {
   res.setHeader('WWW-Authenticate', 'Basic realm="Admin Area"');
   return res.status(401).json({ error: 'Unauthorized' });
 }
+
+module.exports = basicAuth;

@@ -1,15 +1,15 @@
 // server.js
-import 'dotenv/config';
-import express from 'express';
-import helmet from 'helmet';
-import morgan from 'morgan';
-import rateLimit from 'express-rate-limit';
-import cors from 'cors';
+require('dotenv').config();
+const express = require('express');
+const helmet = require('helmet');
+const morgan = require('morgan');
+const rateLimit = require('express-rate-limit');
+const cors = require('cors');
 
 // Local imports (ESM paths must include .js extension)
-import basicAuth from './middleware/basicAuth.js';
-import adminSurveys from './routes/adminSurveys.js';
-import surveys from './routes/surveys.js'; // Public survey POST route
+const basicAuth = require('./middleware/basicAuth.js');
+const adminSurveys = require('./routes/adminSurveys.js');
+const surveys = require('./routes/surveys.js'); // Public survey POST route
 
 const app = express();
 

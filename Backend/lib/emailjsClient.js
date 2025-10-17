@@ -1,9 +1,9 @@
 // emailjsClient.js
-import fetch from 'node-fetch'; // or omit this import on Node18+
+const fetch = require('node-fetch'); // or omit this import on Node18+
 
 const EMAILJS_API = 'https://api.emailjs.com/api/v1.0/email/send';
 
-export async function sendViaEmailJS({ service_id, template_id, user_id, template_params }) {
+async function sendViaEmailJS({ service_id, template_id, user_id, template_params }) {
   if (!service_id || !template_id || !user_id) {
     throw new Error('Missing EmailJS configuration (service_id/template_id/user_id).');
   }
@@ -31,3 +31,5 @@ export async function sendViaEmailJS({ service_id, template_id, user_id, templat
 
   return res.json();
 }
+
+module.exports = { sendViaEmailJS };

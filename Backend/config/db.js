@@ -1,6 +1,6 @@
 // db.js
-import mysql from 'mysql2/promise';
-import dotenv from 'dotenv';
+const mysql = require('mysql2/promise');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -16,4 +16,4 @@ const pool = mysql.createPool({
   // timezone: 'Z',  // use if you want UTC timestamps
 });
 
-export default pool;
+module.exports = pool;

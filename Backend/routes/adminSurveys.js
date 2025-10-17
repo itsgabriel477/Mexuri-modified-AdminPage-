@@ -1,6 +1,6 @@
 // routes/adminSurveys.js
-import express from 'express';
-import pool from '../db.js';
+const express = require('express');
+const pool = require('../config/db.js');
 
 const router = express.Router();
 
@@ -121,4 +121,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;
